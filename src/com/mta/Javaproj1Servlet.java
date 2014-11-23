@@ -9,7 +9,10 @@ public class Javaproj1Servlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("text/html");
+		//--------------------------exercise 1------------------------
+		/*
 		resp.getWriter().println("<h1>Hello, MY world</h1>");
+		*/
 		//--------------------------exercise 2------------------------
 		/*
 		int num1=4;

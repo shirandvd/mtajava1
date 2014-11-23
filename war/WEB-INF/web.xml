@@ -8,10 +8,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Javaproj1</servlet-name>
 		<servlet-class>com.mta.Javaproj1Servlet</servlet-class>
 	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>Javaproj1</servlet-name>
 		<url-pattern>/javaproj1</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NewMassageServlet</servlet-name>
+		<servlet-class>com.mta.NewMassageServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>NewMassageServlet</servlet-name>
+		<url-pattern>/mynewservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>Stock</servlet-name>
+	<servlet-class>com.mta.Stock</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>Stock</servlet-name>
+	<url-pattern>/stockdetails</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
