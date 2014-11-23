@@ -1,14 +1,8 @@
 package com.mta;
 
-import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class Stock extends HttpServlet {
+public class Stock {
 	private String symbol;
 	private float Ask;
 	private float Bid;
