@@ -37,6 +37,7 @@ public class PortfolioService {
 		s3.setBid(31.2f);
 		s3.setdate(date1);
 		
+		myPortfolio.setTitle("myPortfolio");
 		myPortfolio.addStock(s1);
 		myPortfolio.addStock(s2);
 		myPortfolio.addStock(s3);

@@ -8,27 +8,62 @@ public class Portfolio {
 	
 	private final static int MAX_PORTFOLIO_SIZE = 5;
 	private Stock[] stocks;
-	private StockStatus[] stocksStatus;
+	private StockStatus[] stockStatus;
 	private int portfolioSize = 0;
+	String title;
 	
+	//constructors
 	public Portfolio()
 	{
 		stocks = new Stock [MAX_PORTFOLIO_SIZE];
-		stocksStatus = new StockStatus[MAX_PORTFOLIO_SIZE];
+		stockStatus = new StockStatus[MAX_PORTFOLIO_SIZE];
 	}
 
-	
+	//setters
+	public void setStocks(Stock[] stocks1)
+	{
+		stocks=stocks1;
+	}
+	public void setTitle(String title1)
+	{
+		title=title1;
+	}
+	public void setStockStatus(StockStatus[] stockStatus1)
+	{
+		stockStatus=stockStatus1;
+	}
+
+	//getters 
+	 public Stock[] getStocks()
+	 {
+		 return stocks;
+	 }
+	 public String getTitle()
+	 {
+		 return title;
+	 }
+
+	//methods
 	public void addStock(Stock s)
 	{	
 		stocks[portfolioSize] = s;
 		portfolioSize++;
 	}
 	
-	public Stock[] getStocks()
-	{
-		return stocks;
-	}
+	 public String getHtmlString() 
+	 {
+		
+		String stockStr;
+		
+		String s1String=stocks[0].getHtmlDescription();
+		String s2String=stocks[1].getHtmlDescription();
+		String s3String=stocks[2].getHtmlDescription();
+		
+		stockStr="<h1>"+title+"</h1>"+"<br>"+s1String+"<br>"+s2String+"<br>"+s3String;
+		return stockStr;
+	 }
 	
+	//inner class
 	public class StockStatus {
 		
 		String symbol;
