@@ -1,7 +1,8 @@
 package com.mta.service;
 
 import com.mta.model.Portfolio;
-import com.mta.Stock;
+import com.mta.model.Stock;
+
 import java.util.Date;
 
 /**

@@ -2,8 +2,6 @@ package com.mta.model;
 
 import java.util.Date;
 
-import com.mta.Stock;
-
 /**
  * class represent Portfolio
  * member int portfolioSize includes stocks array size

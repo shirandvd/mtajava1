@@ -1,4 +1,4 @@
-package com.mta;
+package com.mta.model;
 
 import java.util.Date;
 
