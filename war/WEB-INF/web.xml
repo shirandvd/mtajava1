@@ -16,26 +16,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>NewMassageServlet</servlet-name>
-		<servlet-class>com.mta.NewMassageServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>NewMassageServlet</servlet-name>
-		<url-pattern>/mynewservlet</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	<servlet-name>StockDetailsServlet</servlet-name>
-	<servlet-class>com.mta.StockDetailsServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-	<servlet-name>StockDetailsServlet</servlet-name>
-	<url-pattern>/stockdetails</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 	<servlet-name>PortfolioServlet</servlet-name>
 	<servlet-class>com.mta.servlet.PortfolioServlet</servlet-class>
 	</servlet>
