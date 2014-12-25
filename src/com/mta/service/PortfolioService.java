@@ -4,6 +4,7 @@ import com.mta.model.Portfolio;
 import com.mta.model.Stock;
 
 import java.util.Date;
+import java.util.Calendar;
 
 /**
  * @author Shiran Davidi
@@ -17,26 +18,35 @@ public class PortfolioService {
  * this method create a new portfolio
  * @return
  */
-        public Portfolio getPortfolio()
-        {
-                Portfolio myPortfolio= new Portfolio();
-                java.util.Date date1=new java.util.Date();
-                date1.setDate(15);
-                date1.setMonth(10);
-                date1.setYear(114);
-                date1.setHours(0);
-                date1.setMinutes(0);
-                date1.setSeconds(0);
-               
-                Stock s1=new Stock("PIH",12.4f,13.1f,date1);
-                Stock s2=new Stock("AAL",5.5f,5.78f,date1);
-                Stock s3=new Stock("CAAS",31.5f,31.2f,date1);
-               
-                myPortfolio.setTitle("myPortfolio");
-                myPortfolio.addStock(s1);
-                myPortfolio.addStock(s2);
-                myPortfolio.addStock(s3);
-               
-                return myPortfolio;
-        }
+	  public Portfolio getPortfolio()
+      {
+               Portfolio myPortfolio= new Portfolio();
+       myPortfolio.setTitle("Exercise 7 portfolio");
+       myPortfolio.setBalance(10000);
+     
+
+       Calendar c = Calendar.getInstance();
+       c.set(2014, 12, 15, 0, 0, 0);
+       Date newDate = c.getTime();
+       
+       Stock s1=new Stock("PIH",10f,8.5f,newDate);
+       Stock s2=new Stock("AAL",30f,25.5f,newDate);
+       Stock s3=new Stock("CAAS",20f,15.5f,newDate);
+             
+             
+       
+              myPortfolio.addStock(s1);
+              myPortfolio.addStock(s2);
+              myPortfolio.addStock(s3);
+             
+             
+              myPortfolio.buyStock("PIH",20);
+              myPortfolio.buyStock("AAL",30);
+              myPortfolio.buyStock("CAAS",40);
+             
+              myPortfolio.sellStock("AAL",-1);
+              myPortfolio.removeStock("CAAS");
+             
+              return myPortfolio;
+      }
 }
