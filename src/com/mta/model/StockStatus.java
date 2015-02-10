@@ -13,12 +13,8 @@ import com.mta.model.Portfolio.ALGO_RECOMMENDATION;
 
 public class StockStatus extends Stock{
 	
-	private  ALGO_RECOMMENDATION recommendation;
+	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
-	
-	/**
-	 * Constructor StockStatus
-	 */
 	
 	public StockStatus()
 	{
@@ -27,23 +23,6 @@ public class StockStatus extends Stock{
 		setStockQuantity(0);
 	}
 	
-	/**
-	 * Constructor that build StockStatus from Stock
-	 * @param s1
-	 */
-	
-	public StockStatus(Stock s1)
-	{
-		super(s1);
-		setRecommendation(null);
-		setStockQuantity(0);	
-	}
-	
-	/**
-	 * Copy constructor
-	 * @param s1
-	 */
-	
 	public StockStatus(StockStatus s1)
 	{
 		super(s1);
@@ -51,27 +30,29 @@ public class StockStatus extends Stock{
 		setStockQuantity(s1.getStockQuantity());
 	}
 	
-	//Setters
-
-	public void setRecommendation(ALGO_RECOMMENDATION recommendation)
+	public StockStatus(Stock s)
 	{
-		this.recommendation = recommendation;
+		super(s);
+		setRecommendation(null);
+		setStockQuantity(0);
 	}
-	
-	public void setStockQuantity(int stockQuantity)
+	//getters
+	public ALGO_RECOMMENDATION getRecommendation() 
 	{
-		this.stockQuantity = stockQuantity;
+		return recommendation;
 	}
-	
-	//Getters
-
 	public int getStockQuantity()
 	{
 		return stockQuantity;
 	}
-
-	public ALGO_RECOMMENDATION getRecommendation()
+	
+	//setters
+	public void setRecommendation(ALGO_RECOMMENDATION recommendation)
 	{
-		return recommendation;
+		this.recommendation=recommendation;
+	}
+	public void setStockQuantity(int stockQuantity)
+	{
+		this.stockQuantity=stockQuantity;
 	}
 }

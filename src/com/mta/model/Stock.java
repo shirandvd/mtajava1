@@ -10,46 +10,37 @@ import java.util.Date;
 public class Stock {
 	protected String symbol;
 	protected float ask;
-	protected float bid;
-	protected Date date;
- 
+	protected float Bid;
+	protected  Date date;
+
 	/**
-	 * Constructor Stock
+	 * constructor Stock- sets instance stock
 	 * @param symbol
 	 * @param ask
 	 * @param bid
 	 * @param date
 	 */
-
-	public Stock()
-	{
-		setSymbol("None");
+	public Stock(){
+		
+		setSymbol("null");
 		setAsk(0);
 		setBid(0);
 		date=new Date();
-	}
+	};
 	
-	/**
-	 * Copy constructor Stock
-	 * @param symbol
-	 * @param ask
-	 * @param bid
-	 * @param date
-	 */
-
-	public Stock(String symbol, float ask, float bid, Date date)
+	public Stock(String symbol,float ask,float bid,Date date)
 	{
-		setSymbol(symbol);
-		setAsk(ask);
-		setBid(bid);
-		setDate(date);
+		this.setSymbol(symbol);
+		this.setAsk(ask);
+		this.setBid(bid);
+		this.setDate(date);
 	}
 
 	/**
-	 * Copy constructor Stock
+	 * copy constructor
+	 * receives instance of Stock and copies it.
 	 * @param stock
 	 */
-
 	public Stock(Stock stock)
 	{
 		setSymbol(stock.getSymbol());
@@ -57,50 +48,48 @@ public class Stock {
 		setBid(stock.getBid());
 		setDate(stock.getDate());
 	}
-
-	//Getters
-
-	public String getSymbol() {
+	//getters
+	public String getSymbol()
+	{
 		return symbol;
 	}
-
-	public float getAsk() {
+	public float getAsk()
+	{
 		return ask;
 	}
-
-	public float getBid() {
-		return bid;
+	public float getBid()
+	{
+		return Bid;
 	}
-
-	public Date getDate() {
+	public Date getDate()
+	{
 		return date;
 	}
-
-	//Setters
-
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	//setters
+	public void setSymbol(String symbol1)
+	{
+		symbol=symbol1;
 	}
-
-	public void setAsk(float ask) {
-		this.ask = ask;
+	public void setAsk(float ask1)
+	{
+		ask=ask1;
 	}
-
-	public void setBid(float bid) {
-		this.bid = bid;
+	public void setBid(float bid1)
+	{
+		Bid=bid1;
 	}
-
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date date1)
+	{
+		date=date1;
 	}
-
+	
 	/**
-	 *Method that returns HTML description in bold font with break between lines
+	 * @return HTML string about the Stock in bold font and break between lines
+	 * @date December 2014
 	 */
-
-	public String getHtmlDescription() {
-		String stockHtmlDetailsString=  "<b>Stock Symbol</b>: " +getSymbol()+ " <b>Bid</b>: " +getBid()+ "$ <b>Ask</b>: " +getAsk()+ "$ <b>Date</b>: " +getDate();
+	public String getHtmlDescription()
+	{
+		String stockHtmlDetailsString = "<b>Stock symbol: </b>"+getSymbol()+"<b> Ask: </b>"+getAsk()+"<b> Bid: </b>"+getBid()+"<b> Date: </b>" +getDate();
 		return stockHtmlDetailsString;
 	}
-
 }

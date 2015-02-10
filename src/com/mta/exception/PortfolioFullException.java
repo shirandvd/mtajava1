@@ -1,16 +1,10 @@
 package com.mta.exception;
 
-/**
- * Portfolio full Exception
- * @author Shiran Davidi
- * January 2015
- */
+public class PortfolioFullException extends Exception {
 
-public class PortfolioFullException extends Exception{
-	
-	public PortfolioFullException()
-	{
-		super("Portfolio is full");
+	private static final long serialVersionUID = 1L;
+
+	public PortfolioFullException() {
+		super("You had reached maximum portfolio size!");
 	}
-
 }

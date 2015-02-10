@@ -1,44 +1,38 @@
 package com.mta.servlet;
 
-import java.io.IOException;
+import com.mta.dto.PortfolioDto;
+import com.mta.dto.PortfolioTotalStatus;
+import com.mta.model.StockStatus;
 
-import javax.servlet.http.HttpServlet;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mta.model.Portfolio;
-import com.mta.model.StockStatus;
-import com.mta.service.PortfolioService;
-import com.mta.exception.BalanceException;
-import com.mta.exception.NotEnoughStocksToSellException;
-import com.mta.exception.PortfolioFullException;
-import com.mta.exception.StockAlreadyExistsException;
-import com.mta.exception.StockNotExistException;
+public class PortfolioServlet extends AbstractAlgoServlet {
 
-/**
- * PortfolioServlet print to screen portfolio data
- * @author Shiran Davidi
- * date December 2014
- */
-public class PortfolioServlet  extends HttpServlet {
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	private static final long serialVersionUID = 1L;
 
-		resp.setContentType("text/html");
-
-		PortfolioService portfolioService = new PortfolioService();
-		Portfolio portfolio;
-
-		try
-		{
-			portfolio = portfolioService.getPortfolio();
-			String portfolioStr= portfolio.getHtmlString();
-			resp.getWriter().println(portfolioStr);
-
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.setContentType("application/json");
+		
+		PortfolioTotalStatus[] totalStatus = portfolioService.getPortfolioTotalStatus();
+		StockStatus[] stockStatusArray = portfolioService.getPortfolio().getStockStatus();
+		List<StockStatus> stockStatusList = new ArrayList<>();
+		for (StockStatus ss : stockStatusArray) {
+			if(ss != null)
+				stockStatusList.add(ss);
 		}
-		catch (Exception e)
-		{
-			resp.getWriter().println(e.getMessage());
-		}				
+		
+		PortfolioDto pDto = new PortfolioDto();
+		pDto.setTitle(portfolioService.getPortfolio().getTitle());
+		pDto.setTotalStatus(totalStatus);
+		pDto.setStockTable(stockStatusList);
+		resp.getWriter().print(withNullObjects().toJson(pDto));
 	}
 }
